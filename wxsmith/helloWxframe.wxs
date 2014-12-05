@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<wxsmith>
+	<object class="wxFrame" name="helloWxFrame">
+		<title>neo-Serial Terminal</title>
+		<centered>1</centered>
+		<icon>C:\Users\neutron\Downloads\Fatcow-Farm-Fresh-Port.ico</icon>
+		<minsize>400,378</minsize>
+		<maxsize>400,378</maxsize>
+		<id_arg>0</id_arg>
+		<object class="wxPanel" name="ID_PANEL1" variable="Panel1" member="yes">
+			<pos>152,16</pos>
+			<size>400,376</size>
+			<object class="wxStaticBox" name="ID_STATICBOX2" variable="StaticBox2" member="yes">
+				<label>Received Data</label>
+				<pos>8,136</pos>
+				<size>368,160</size>
+			</object>
+			<object class="wxStaticBox" name="ID_STATICBOX1" variable="StaticBox1" member="yes">
+				<label>Port Setup</label>
+				<pos>256,8</pos>
+				<size>120,120</size>
+			</object>
+			<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
+				<label>Send</label>
+				<default>1</default>
+				<pos>176,80</pos>
+				<size>72,23</size>
+				<focused>1</focused>
+				<handler function="OnButton1Click1" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL1" variable="TextCtrl1" member="yes">
+				<pos>24,16</pos>
+				<size>224,56</size>
+				<tooltip>Enter Characters to Send to Serial Device</tooltip>
+				<style>wxTE_AUTO_SCROLL|wxTE_MULTILINE</style>
+				<handler function="OnTextCtrl1Text" entry="EVT_TEXT" />
+				<handler function="OnTextCtrl1TextMaxLen" entry="EVT_TEXT_MAXLEN" />
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL2" variable="TextCtrl2" member="yes">
+				<value>COM16</value>
+				<pos>272,24</pos>
+				<size>88,21</size>
+			</object>
+			<object class="wxButton" name="ID_BUTTON2" variable="Button2" member="yes">
+				<label>Connect</label>
+				<pos>272,48</pos>
+				<size>88,23</size>
+				<handler function="OnButton2Click" entry="EVT_BUTTON" />
+			</object>
+			<object class="wxComboBox" name="ID_COMBOBOX1" variable="ComboBox1" member="yes">
+				<content>
+					<item>1200</item>
+					<item>4800</item>
+					<item>9600</item>
+					<item>19200</item>
+					<item>38400</item>
+					<item>57600</item>
+				</content>
+				<selection>2</selection>
+				<pos>272,96</pos>
+				<size>88,21</size>
+				<tooltip>Select BaudRate for serial Comm</tooltip>
+				<handler function="OnComboBox1Select" entry="EVT_COMBOBOX" />
+			</object>
+			<object class="wxStaticText" name="ID_STATICTEXT1" variable="StaticText1" member="yes">
+				<label>BAUD RATE</label>
+				<pos>288,80</pos>
+				<size>64,16</size>
+			</object>
+			<object class="wxCheckBox" name="ID_CHECKBOX1" variable="CheckBox1" member="yes">
+				<label>Instant Send</label>
+				<pos>24,88</pos>
+				<tooltip>Check this button so that characters entered are sent instantly i.e. Don&apos;t wait until &quot;send&quot; is clicked.</tooltip>
+			</object>
+			<object class="wxTextCtrl" name="ID_TEXTCTRL3" variable="TextCtrl3" member="yes">
+				<pos>24,160</pos>
+				<size>336,120</size>
+				<tooltip>This is response console, data received from serial port is shown here.</tooltip>
+				<style>wxTE_AUTO_SCROLL|wxTE_MULTILINE|wxTE_READONLY</style>
+			</object>
+			<object class="wxRadioButton" name="ID_RADIOBUTTON1" variable="RadioButton1" member="yes">
+				<label>Char</label>
+				<selected>1</selected>
+				<pos>24,112</pos>
+				<handler function="OnRadioButtonChar" entry="EVT_RADIOBUTTON" />
+			</object>
+			<object class="wxRadioButton" name="ID_RADIOBUTTON2" variable="RadioButton2" member="yes">
+				<label>Hex</label>
+				<pos>80,112</pos>
+				<handler function="OnRadioButtonHex" entry="EVT_RADIOBUTTON" />
+			</object>
+			<object class="wxCheckBox" name="ID_CHECKBOX2" variable="CheckBox2" member="yes">
+				<label>Start Listening</label>
+				<checked>1</checked>
+				<pos>136,112</pos>
+			</object>
+		</object>
+		<object class="wxMenuBar" variable="MenuBar1" member="no">
+			<object class="wxMenu" variable="Menu1" member="no">
+				<label>&amp;File</label>
+				<object class="wxMenuItem" name="idMenuOnCountByte" variable="MenuItem5" member="yes">
+					<label>Count Received byte</label>
+					<accel>ALT+C</accel>
+					<help>Count number of bytes/chars received.</help>
+					<handler function="OnMenuCountBytes" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuQuit" variable="MenuItem1" member="no">
+					<label>Quit</label>
+					<accel>Alt-F4</accel>
+					<help>Quit the application</help>
+					<handler function="OnQuit" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu3" member="no">
+				<label>Clear</label>
+				<object class="wxMenuItem" name="idMenuOnReceiveClear" variable="MenuItem3" member="yes">
+					<label>Clear Receive Panel</label>
+					<accel>ALT+R</accel>
+					<help>Clear the Receive Text input Panel</help>
+					<handler function="OnMenuItem3Selected" entry="EVT_MENU" />
+				</object>
+				<object class="wxMenuItem" name="idMenuOnSendClear" variable="MenuItem4" member="no">
+					<label>Clear Send Panel</label>
+					<accel>ALT+S</accel>
+					<help>Clear the Send Text panel.</help>
+					<handler function="OnMenuItem4Selected" entry="EVT_MENU" />
+				</object>
+			</object>
+			<object class="wxMenu" variable="Menu2" member="no">
+				<label>Help</label>
+				<object class="wxMenuItem" name="idMenuAbout" variable="MenuItem2" member="no">
+					<label>About</label>
+					<accel>F1</accel>
+					<help>Show info about this application</help>
+					<handler function="OnAbout" entry="EVT_MENU" />
+				</object>
+			</object>
+		</object>
+		<object class="wxStatusBar" name="ID_STATUSBAR1" variable="StatusBar1" member="yes">
+			<fields>1</fields>
+			<widths>-1</widths>
+			<styles>wxSB_NORMAL</styles>
+		</object>
+		<object class="wxTimer" name="ID_TIMER1" variable="Timer1" member="yes">
+			<interval>1000</interval>
+			<handler function="OnTimer1Trigger1" entry="EVT_TIMER" />
+		</object>
+	</object>
+</wxsmith>
